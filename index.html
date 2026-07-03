@@ -1,154 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SpwnPT - Dedicated Server Manager</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SpwnPT - Dedicated Server Manager</title>
 
-<style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #4f46e5;
+      --accent2: #06b6d4;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
     body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #0b0f19;
-        color: #ffffff;
+      background: radial-gradient(circle at top, #111827, var(--bg));
+      color: var(--text);
+      overflow-x: hidden;
     }
 
-    header {
-        padding: 80px 20px;
-        text-align: center;
-        background: radial-gradient(circle at top, #1b2a4a, #0b0f19);
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
     }
 
-    h1 {
-        font-size: 48px;
-        margin-bottom: 10px;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 20px;
     }
 
-    p {
-        font-size: 18px;
-        color: #b5c0d0;
-        max-width: 700px;
-        margin: 0 auto;
+    .logo img {
+      height: 40px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 100px 20px 60px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .buttons {
-        margin-top: 25px;
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
     }
 
     .btn {
-        display: inline-block;
-        padding: 12px 20px;
-        margin: 5px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s;
+      text-decoration: none;
     }
 
     .primary {
-        background: #4f7cff;
-        color: white;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: white;
     }
 
     .secondary {
-        background: #1f2a44;
-        color: white;
+      background: #1f2937;
+      color: white;
     }
 
-    section {
-        padding: 60px 20px;
-        max-width: 1000px;
-        margin: auto;
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-        margin-top: 30px;
+    /* FEATURES */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 60px;
+      max-width: 1100px;
+      margin: auto;
     }
 
     .card {
-        background: #141b2d;
-        padding: 20px;
-        border-radius: 12px;
-        border: 1px solid #24314f;
+      background: rgba(17, 24, 39, 0.8);
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(79,70,229,0.4);
     }
 
     .card h3 {
-        margin-top: 0;
-        color: #7aa2ff;
+      margin-bottom: 10px;
     }
 
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* SECTION */
+    .section {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      color: var(--muted);
+    }
+
+    /* FOOTER */
     footer {
-        text-align: center;
-        padding: 30px;
-        color: #6b7a99;
-        border-top: 1px solid #1f2a44;
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+      font-size: 13px;
     }
-</style>
 
+    @media (max-width: 768px) {
+      nav {
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <h1>SpwnPT</h1>
-    <p>The Ultimate Dedicated Server Manager for Games like 7 Days to Die, Minecraft, Project Zomboid, ARK, and more.</p>
+  <!-- NAV -->
+  <nav>
+    <div class="logo">
+      <img src="spwnpt.png" alt="SpwnPT Logo">
+      SpwnPT
+    </div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Deploy. Manage. Play.</h1>
+    <p>
+      SpwnPT is the ultimate dedicated server manager for gamers and communities.
+      Spin up servers, manage mods, automate tasks, and control everything from one dashboard.
+    </p>
 
     <div class="buttons">
-        <a href="#" class="btn primary">Download SpwnPT</a>
-        <a href="#features" class="btn secondary">View Features</a>
+      <a class="btn primary" href="#features">Get Started</a>
+      <a class="btn secondary" href="https://github.com/">View GitHub</a>
     </div>
-</header>
+  </div>
 
-<section id="features">
-    <h2>Features</h2>
-
-    <div class="grid">
-        <div class="card">
-            <h3>⚡ One-Click Setup</h3>
-            <p>Create dedicated servers instantly without manual configuration.</p>
-        </div>
-
-        <div class="card">
-            <h3>🎮 Multi-Game Support</h3>
-            <p>Manage 7 Days to Die, Minecraft, ARK, and more from one tool.</p>
-        </div>
-
-        <div class="card">
-            <h3>🤖 Discord Integration</h3>
-            <p>Get live server updates, logs, and player alerts in Discord.</p>
-        </div>
-
-        <div class="card">
-            <h3>💾 Auto Backups</h3>
-            <p>Keep your servers safe with scheduled automated backups.</p>
-        </div>
-
-        <div class="card">
-            <h3>📦 Mod Manager</h3>
-            <p>Install and manage mods easily with a built-in system.</p>
-        </div>
-
-        <div class="card">
-            <h3>📊 Live Console</h3>
-            <p>View and control your server in real time.</p>
-        </div>
+  <!-- FEATURES -->
+  <div class="features" id="features">
+    <div class="card">
+      <h3>⚡ Instant Deployment</h3>
+      <p>Create dedicated servers in seconds with automated setup pipelines.</p>
     </div>
-</section>
 
-<section>
-    <h2>Why SpwnPT?</h2>
+    <div class="card">
+      <h3>🎮 Game Support</h3>
+      <p>Built for games like 7 Days to Die, Minecraft, Conan Exiles and more.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧠 Smart Automation</h3>
+      <p>Schedule restarts, backups, updates, and mod syncing automatically.</p>
+    </div>
+
+    <div class="card">
+      <h3>🔗 Discord Integration</h3>
+      <p>Control your servers directly from Discord with webhooks and bots.</p>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section" id="about">
+    <h2>Built for Server Owners</h2>
     <p>
-        SpwnPT was built to remove the complexity of hosting game servers.
-        Instead of dealing with SteamCMD, configs, ports, and scripts,
-        you get a clean interface that handles everything for you.
+      Whether you're hosting friends or running large communities, SpwnPT gives you full control without complexity.
     </p>
-</section>
+  </div>
 
-<footer>
-    © 2026 SpwnPT - All Rights Reserved
-</footer>
+  <!-- CONTACT -->
+  <div class="section" id="contact">
+    <h2>Join the Project</h2>
+    <p>Email: support@spwnpt.dev (replace this later)</p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 SpwnPT. All rights reserved.
+  </footer>
 
 </body>
 </html>
